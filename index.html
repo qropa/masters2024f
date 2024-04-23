@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Visualizer</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    </head>
+    <body>
+        <p>
+            <label>
+                Seed:
+                <input type="number" id="seed" value="0" min="0" max="99" onchange="updateInOut()" />
+                Problem:
+                <input type="text" id="problem" value="A" onchange="updateInOut()" />
+            </label>&emsp;
+        </p>
+        <p>
+            <label>
+                Input:<br>
+                <textarea id="input" rows="4" style="width: 650px;" oninput="updateResult()"></textarea>
+            </label>
+        </p>
+        <p>
+            <label for="output">Output:</label>
+            <input type="button" id="selectDirectory" value="Select Directory" onclick="fileselect()">&emsp;
+            <label for="zfill">0埋桁:</label>
+            <input type="number" id="zfill" value="4" min="1" max="8" onchange="updateInOut()">&emsp;
+            <label for="extension_out">拡張子:</label>
+            <textarea id="extension_out" rows="1" style="width: 60px;" onchange="updateInOut()">txt</textarea>&emsp;
+            <textarea id="output" rows="4" style="width: 650px;" oninput="updateResult()"></textarea>
+        </p>
+        <p style="display:flex;">
+            <input type="button" id="play" value="▶" style="width:32px;height:32px;bottom:5px;position:relative;">&ensp;
+            <label>
+                slow
+                <input type="range" id="speed" min="1" max="1000" value="500" style="width:200px;">
+                fast&emsp;
+            </label>
+            <label>
+                turn:
+                <input type="number" id="turn" value="0" min="0" max="0" style="width:70px;text-align:right;" onchange="update_t(this.value)"/>
+            </label>
+        </p>
+        <p>
+            <input type="range" id="t_bar" min="0" max="0" value="0" style="width:780px;" onchange="update_t(this.value)" oninput="update_t(this.value)">
+        </p>
+        <hr>
+        <p>
+            <span id="score"></span>&emsp;
+            <span id="error"></span>&emsp;
+        </p>
+        <div id="result"></div>
+        <div id="tooltip" style="position: absolute; background-color: white; border: 1px solid black; padding: 5px; display: none;"></div>
+        <script type="module" src="./main.js"></script>
+    </body>
+</html>
